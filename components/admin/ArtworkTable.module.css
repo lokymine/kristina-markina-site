@@ -1,0 +1,204 @@
+.wrapper {
+    overflow-x: auto;
+
+    background: white;
+
+    border-radius: 18px;
+
+    box-shadow: 0 10px 35px rgba(0,0,0,.06);
+}
+
+.table {
+    width:100%;
+
+    border-collapse:collapse;
+}
+
+.table thead{
+    position:sticky;
+
+    top:0;
+
+    z-index:2;
+}
+
+.table thead th{
+
+    background:#fafafa;
+
+    padding:18px;
+
+    text-align:left;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    border-bottom:1px solid #ececec;
+}
+
+.table tbody tr{
+
+    transition:.25s;
+}
+
+.table tbody tr:hover{
+
+    background:#fafafa;
+}
+
+.table td{
+
+    padding:18px;
+
+    border-bottom:1px solid #f1f1f1;
+
+    vertical-align:middle;
+}
+
+.image{
+
+    width:90px;
+
+    height:90px;
+
+    object-fit:cover;
+
+    border-radius:12px;
+
+    transition:.25s;
+}
+
+.image:hover{
+
+    transform:scale(1.08);
+}
+
+.title{
+
+    font-weight:700;
+
+    margin-bottom:6px;
+}
+
+.material{
+
+    color:#777;
+
+    font-size:14px;
+}
+
+.actions{
+
+    display:flex;
+
+    gap:10px;
+}
+
+.edit,
+.delete{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+    font-size:18px;
+}
+
+.edit{
+
+    background:#eef5ff;
+}
+
+.edit:hover{
+
+    background:#d7e8ff;
+
+    transform:translateY(-2px);
+}
+
+.delete{
+
+    background:#fff0f0;
+}
+
+.delete:hover{
+
+    background:#ffdcdc;
+
+    transform:translateY(-2px);
+}
+
+.actionsHead{
+
+    width:130px;
+}
+
+.empty{
+
+    padding:80px;
+
+    background:white;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    color:#888;
+
+    font-size:18px;
+}
+.drag {
+    cursor: grab;
+    font-size: 22px;
+    text-align: center;
+    user-select: none;
+    width: 40px;
+}
+
+.drag:active {
+    cursor: grabbing;
+}
+.row {
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease,
+    background .2s ease;
+}
+
+.dragging {
+  opacity: .85;
+  background: #fff;
+  box-shadow: 0 12px 32px rgba(0,0,0,.18);
+  z-index: 20;
+}
+
+.image {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.actions{
+  display:flex;
+  gap:8px;
+}
+
+.edit,
+.delete{
+  border:none;
+  border-radius:8px;
+  width:36px;
+  height:36px;
+  cursor:pointer;
+}

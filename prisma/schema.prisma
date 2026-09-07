@@ -1,0 +1,147 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Artwork {
+  id          Int      @id @default(autoincrement())
+  title       String
+  image       String
+  year        Int
+  material    String
+  size        String
+  width       Int
+  height      Int
+  price       Int
+  description String
+  category    String
+  status      String   @default("available")
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  slug        String   @unique
+
+  stats  ArtworkStats?
+  images ArtworkImage[]
+}
+
+model ArtworkStats {
+  id        Int      @id @default(autoincrement())
+  artworkId Int      @unique
+  views     Int      @default(0)
+  clicks    Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  artwork Artwork @relation(fields: [artworkId], references: [id], onDelete: Cascade)
+}
+
+model ArtworkImage {
+  id        Int      @id @default(autoincrement())
+  artworkId Int
+  image     String
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+
+  artwork Artwork @relation(fields: [artworkId], references: [id], onDelete: Cascade)
+}
+
+model SiteStats {
+  id           Int      @id @default(autoincrement())
+  date         DateTime @unique
+  visits       Int      @default(0)
+  uniqueVisits Int      @default(0)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model About {
+  id          Int     @id @default(1)
+  title       String  @default("О художнике")
+  description String  @default("")
+  image       String?
+
+  titleColor       String @default("#292722")
+  descriptionColor String @default("#5f5b54")
+  fontFamily       String @default("Inter")
+
+  updatedAt DateTime @updatedAt
+}
+
+model Contacts {
+  id        Int     @id
+  phone     String?
+  email     String?
+  telegram  String?
+  vk        String?
+  whatsapp  String?
+  instagram String?
+
+  fontFamily String @default("Inter")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model HomeSettings {
+  id          Int    @id @default(1)
+  label       String @default("Художник")
+  title       String @default("Кристина Маркина")
+  description String @default("")
+  buttonText  String @default("Смотреть каталог")
+
+  heroImage       String?
+  backgroundImage String?
+  backgroundColor String  @default("#f8f7f3")
+
+  updatedAt DateTime @updatedAt
+}
+
+model SiteSettings {
+  id Int @id @default(1)
+
+  homeLabel       String @default("Художник")
+  homeTitle       String @default("Кристина Маркина")
+  homeDescription String @default("Авторские произведения искусства, современные художественные серии и уникальные работы.")
+  homeButtonText  String @default("Смотреть каталог")
+
+  heroImage       String?
+  backgroundImage String?
+  backgroundColor String  @default("#f8f7f3")
+
+  homeTextColor String @default("#292722")
+
+  homeLabelColor       String @default("#292722")
+  homeTitleColor       String @default("#292722")
+  homeDescriptionColor String @default("#292722")
+
+  homeButtonColor     String @default("#292722")
+  homeButtonTextColor String @default("#f8f7f3")
+
+  homeFontFamily String @default("Inter")
+
+  homeLayout        String @default("left")
+  backgroundOverlay Int    @default(0)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model FontAsset {
+  id        Int      @id @default(autoincrement())
+  name      String
+  url       String   @unique
+  createdAt DateTime @default(now())
+}
+
+model StatsVisitor {
+  id        Int      @id @default(autoincrement())
+  key       String   @unique
+  lastAt    DateTime
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

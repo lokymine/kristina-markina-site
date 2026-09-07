@@ -1,0 +1,2562 @@
+@import "tailwindcss";
+
+/* =========================================================
+   ОСНОВНЫЕ НАСТРОЙКИ
+========================================================= */
+
+:root {
+  --background: #f8f6f3;
+  --foreground: #292722;
+  --accent: #b8865b;
+  --border: #e6e0d8;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+
+  background: var(--background);
+  color: var(--foreground);
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.site-header {
+  position: relative;
+
+  width: 100%;
+
+  background: rgba(248, 247, 243, 0.97);
+
+  border-bottom: 1px solid rgba(41, 39, 34, 0.12);
+
+  z-index: 1000;
+}
+
+.site-header-inner {
+  width: min(1440px, calc(100% - 64px));
+
+  min-height: 92px;
+
+  margin: 0 auto;
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+/* Логотип */
+
+.site-logo {
+  flex-shrink: 0;
+
+  color: #292722;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size: 26px;
+  font-weight: 400;
+
+  line-height: 1;
+
+  letter-spacing: 0.08em;
+
+  transition: opacity 0.3s ease;
+}
+
+.site-logo:hover {
+  opacity: 0.55;
+}
+
+
+/* Навигация */
+
+.desktop-navigation {
+  display: flex;
+  align-items: center;
+
+  gap: 48px;
+}
+
+.desktop-navigation a,
+.desktop-navigation button {
+  position: relative;
+
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  color: #292722;
+
+  font-family: inherit;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  line-height: 1;
+
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  transition: opacity 0.3s ease;
+}
+
+.desktop-navigation a::after,
+.desktop-navigation button::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  bottom: -9px;
+
+  height: 1px;
+
+  background: #292722;
+
+  transform: scaleX(0);
+
+  transform-origin: center;
+
+  transition: transform 0.3s ease;
+}
+
+.desktop-navigation a:hover,
+.desktop-navigation button:hover {
+  opacity: 0.65;
+}
+
+.desktop-navigation a:hover::after,
+.desktop-navigation button:hover::after {
+  transform: scaleX(1);
+}
+
+
+/* Burger */
+
+.burger-button {
+  display: none;
+
+  width: 44px;
+  height: 44px;
+
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 5px;
+}
+
+.burger-button span {
+  display: block;
+
+  width: 23px;
+  height: 1px;
+
+  background: #292722;
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.burger-button.is-open span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.burger-button.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger-button.is-open span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+
+/* Mobile navigation */
+
+.mobile-navigation {
+  display: none;
+}
+
+
+/* =========================================================
+   КАТАЛОГ
+========================================================= */
+
+.home-catalog {
+  width: 100%;
+
+  background: #f8f7f3;
+
+  scroll-margin-top: 40px;
+}
+
+#catalog {
+  scroll-margin-top: 40px;
+}
+
+.embedded-catalog {
+  width: min(1400px, calc(100% - 64px));
+
+  max-width: 1400px;
+
+  margin: 0 auto;
+
+  padding: 110px 0 130px;
+}
+
+
+/* =========================================================
+   ЗАГОЛОВОК КАТАЛОГА
+========================================================= */
+
+.catalog-heading {
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 40px;
+
+  margin-bottom: 55px;
+
+  padding-bottom: 24px;
+
+  border-bottom: 1px solid rgba(41, 39, 34, 0.14);
+}
+
+.catalog-eyebrow {
+  margin-bottom: 14px;
+
+  font-size: 10px;
+  font-weight: 500;
+
+  line-height: 1;
+
+  letter-spacing: 0.28em;
+
+  text-transform: uppercase;
+
+  color: #8d8980;
+}
+
+.catalog-heading h2 {
+  margin: 0;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size: clamp(54px, 6vw, 88px);
+
+  font-weight: 400;
+
+  line-height: 0.88;
+
+  letter-spacing: -0.045em;
+
+  color: #292722;
+}
+
+.catalog-count {
+  margin-bottom: 4px;
+
+  font-size: 10px;
+  font-weight: 500;
+
+  line-height: 1;
+
+  letter-spacing: 0.15em;
+
+  text-transform: uppercase;
+
+  color: #8d8980;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   ФИЛЬТРЫ / СОРТИРОВКА
+========================================================= */
+
+.catalog-filters {
+  width: 100%;
+
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 25px;
+
+  margin-bottom: 55px;
+
+  padding-bottom: 18px;
+
+  border-bottom: 1px solid rgba(41, 39, 34, 0.1);
+}
+
+.filter-group {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  margin: 0;
+  padding: 0;
+
+  border: 0;
+}
+
+.filter-group label,
+.filter-title {
+  display: block;
+
+  margin: 0;
+
+  font-size: 12px;
+  font-weight: 500;
+
+  line-height: 1;
+
+  letter-spacing: 0.2em;
+
+  text-transform: uppercase;
+
+  color: #8d8980;
+}
+
+
+/* Select */
+
+.catalog-filters select {
+  min-width: 160px;
+
+  height: 36px;
+
+  padding: 0 28px 0 0;
+
+  border: 0;
+
+  border-bottom: 1px solid rgba(41, 39, 34, 0.35);
+
+  border-radius: 0;
+
+  outline: none;
+
+  background-color: transparent;
+
+  color: #292722;
+
+  font-family: inherit;
+
+  font-size: 12px;
+  font-weight: 500;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  appearance: none;
+
+  background-image:
+    linear-gradient(
+      45deg,
+      transparent 50%,
+      #292722 50%
+    ),
+    linear-gradient(
+      135deg,
+      #292722 50%,
+      transparent 50%
+    );
+
+  background-position:
+    calc(100% - 8px) 15px,
+    calc(100% - 4px) 15px;
+
+  background-size:
+    4px 4px,
+    4px 4px;
+
+  background-repeat: no-repeat;
+
+  transition: border-color 0.3s ease;
+}
+
+.catalog-filters select:hover,
+.catalog-filters select:focus {
+  border-color: #292722;
+}
+
+
+/* Inputs */
+
+.catalog-filters input {
+  width: 100px;
+
+  height: 36px;
+
+  padding: 7px 4px;
+
+  border: 0;
+
+  border-bottom: 1px solid rgba(41, 39, 34, 0.2);
+
+  border-radius: 0;
+
+  outline: none;
+
+  background: transparent;
+
+  color: #292722;
+
+  font-family: inherit;
+
+  font-size: 12px;
+
+  transition: border-color 0.3s ease;
+}
+
+.catalog-filters input:focus {
+  border-color: #292722;
+}
+
+.catalog-filters input::placeholder {
+  color: #aaa69e;
+}
+
+
+/* Диапазон */
+
+.filter-inputs {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    14px
+    minmax(0, 1fr);
+
+  align-items: center;
+
+  gap: 6px;
+}
+
+.filter-inputs span {
+  text-align: center;
+
+  color: #aaa69e;
+
+  font-size: 10px;
+}
+
+
+/* Кнопка применить */
+
+.apply-filters {
+  min-height: 38px;
+
+  padding: 0 22px;
+
+  border: 1px solid #292722;
+
+  border-radius: 0;
+
+  background: #292722;
+
+  color: #f8f7f3;
+
+  font-family: inherit;
+
+  font-size: 9px;
+  font-weight: 500;
+
+  letter-spacing: 0.16em;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.2s ease;
+}
+
+.apply-filters:hover {
+  background: transparent;
+
+  color: #292722;
+}
+
+.apply-filters:active {
+  transform: scale(0.98);
+}
+
+
+/* Сброс */
+
+.reset-filters {
+  min-height: 38px;
+
+  padding: 0 18px;
+
+  border: 1px solid rgba(41, 39, 34, 0.2);
+
+  border-radius: 0;
+
+  background: transparent;
+
+  color: #77736b;
+
+  font-family: inherit;
+
+  font-size: 9px;
+  font-weight: 500;
+
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.3s ease,
+    color 0.3s ease,
+    background 0.3s ease;
+}
+
+.reset-filters:hover {
+  border-color: #292722;
+
+  color: #292722;
+}
+
+
+/* =========================================================
+   СЕТКА КАРТИН
+========================================================= */
+
+.artworks-grid {
+  width: 100%;
+
+  min-width: 0;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  column-gap: 24px;
+
+  row-gap: 70px;
+
+  align-items: start;
+}
+
+
+/* =========================================================
+   КАРТОЧКА
+========================================================= */
+
+.artwork-card {
+  position: relative;
+
+  width: 100%;
+
+  min-width: 0;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.55s cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    );
+}
+
+.artwork-card:hover {
+  transform: translateY(-5px);
+}
+
+
+/* =========================================================
+   ИЗОБРАЖЕНИЕ КАРТИНЫ
+========================================================= */
+
+.artwork-image-wrapper {
+  position: relative;
+
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  margin: 0;
+  padding: 0;
+
+  background: #eeeae3;
+
+  line-height: 0;
+}
+
+.artwork-image {
+  display: block;
+
+  width: 100% !important;
+  height: auto !important;
+
+  max-width: 100% !important;
+  max-height: none !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  border: 0;
+  outline: 0;
+
+  object-fit: contain !important;
+
+  object-position: center;
+
+  transition:
+    transform 0.8s cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    );
+}
+
+.artwork-card:hover .artwork-image {
+  transform: scale(1.018);
+}
+
+
+/* =========================================================
+   ТЕКСТ КАРТОЧЕК КАТАЛОГА
+========================================================= */
+
+.artwork-info {
+  width: 100%;
+  padding-top: 18px;
+}
+
+.artwork-info-top {
+  width: 100%;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 18px;
+}
+
+.artwork-info h2,
+.artwork-info h3 {
+  min-width: 0;
+
+  margin: 0;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size: 24px;
+  font-weight: 400;
+
+  line-height: 1.15;
+
+  letter-spacing: -0.015em;
+
+  color: #292722;
+
+  overflow-wrap: anywhere;
+}
+
+.artwork-price {
+  flex: 0 0 auto;
+
+  padding-top: 5px;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  line-height: 1.2;
+
+  letter-spacing: 0.02em;
+
+  color: #5f5b54;
+
+  white-space: nowrap;
+}
+
+.artwork-details {
+  margin-top: 8px;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+
+  letter-spacing: 0.02em;
+
+  color: #77736b;
+}
+
+.artwork-year {
+  margin-top: 5px;
+
+  font-size: 11px;
+
+  line-height: 1.4;
+
+  letter-spacing: 0.03em;
+
+  color: #918c83;
+}
+
+
+/* =========================================================
+   СТАТУС «ПРОДАНО»
+========================================================= */
+
+.artwork-status {
+  position: absolute;
+
+  top: 10px;
+  right: 10px;
+
+  z-index: 2;
+
+  padding: 6px 8px;
+
+  background: rgba(
+    248,
+    247,
+    243,
+    0.92
+  );
+
+  font-size: 8px;
+
+  line-height: 1;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+
+  color: #292722;
+
+  backdrop-filter: blur(4px);
+}
+
+
+/* =========================================================
+   ПАГИНАЦИЯ
+========================================================= */
+
+.catalog-pagination {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  margin-top: 70px;
+  padding-top: 25px;
+
+  border-top: 1px solid rgba(41, 39, 34, 0.1);
+}
+
+.catalog-pagination button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-width: 38px;
+  height: 38px;
+
+  padding: 0 10px;
+
+  border: 1px solid rgba(41, 39, 34, 0.16);
+
+  border-radius: 0;
+
+  background: transparent;
+
+  color: #292722;
+
+  font-family: inherit;
+
+  font-size: 10px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.catalog-pagination button:hover {
+  background: #292722;
+
+  border-color: #292722;
+
+  color: #f8f7f3;
+}
+
+.catalog-pagination button.active {
+  background: #292722;
+
+  border-color: #292722;
+
+  color: #f8f7f3;
+}
+
+.catalog-pagination button:disabled {
+  opacity: 0.3;
+
+  cursor: default;
+
+  pointer-events: none;
+}
+
+.catalog-pagination .pagination-prev,
+.catalog-pagination .pagination-next,
+.catalog-pagination .pagination-number {
+  min-width: 38px;
+}
+
+
+/* =========================================================
+   ГЛАВНАЯ — HERO
+========================================================= */
+
+.site-main {
+  position: relative;
+
+  min-height: 100vh;
+
+  isolation: isolate;
+}
+
+.site-background {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -2;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  pointer-events: none;
+}
+
+.site-background-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -1;
+
+  background: #000;
+
+  pointer-events: none;
+}
+
+.home-hero {
+  width: 100%;
+
+  max-width: 1500px;
+
+  min-height: 100vh;
+
+  margin: 0 auto;
+
+  padding: 120px 48px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    420px;
+
+  gap: 90px;
+
+  align-items: center;
+}
+
+.home-hero-content {
+  width: 100%;
+
+  max-width: 650px;
+}
+
+.home-hero-label {
+  margin-bottom: 22px;
+
+  font-size: 13px;
+
+  font-weight: 500;
+
+  letter-spacing: 5px;
+
+  text-transform: uppercase;
+}
+
+.home-hero-title {
+  margin-bottom: 28px;
+
+  font-size:
+    clamp(
+      52px,
+      6vw,
+      92px
+    );
+
+  line-height: 0.96;
+
+  font-weight: 600;
+
+  letter-spacing: -4px;
+
+  white-space: pre-line;
+}
+
+.home-hero-description {
+  max-width: 650px;
+
+  margin-bottom: 42px;
+
+  font-size: 20px;
+
+  line-height: 1.65;
+
+  white-space: pre-line;
+}
+
+.home-hero-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 54px;
+
+  padding: 0 32px;
+
+  border-radius: 999px;
+
+  background: #292722;
+
+  color: #fff !important;
+
+  font-size: 15px;
+
+  font-weight: 500;
+
+  text-decoration: none;
+
+  box-shadow:
+    0 8px 20px
+    rgba(0, 0, 0, 0.12);
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.home-hero-button:hover {
+  background: #3d392f;
+
+  transform: translateY(-2px);
+}
+
+.home-hero-image {
+  position: relative;
+
+  width: 100%;
+
+  height: 620px;
+
+  overflow: hidden;
+
+  border-radius: 36px;
+
+  box-shadow:
+    0 20px 50px
+    rgba(0, 0, 0, 0.14);
+}
+
+.home-hero-image-img {
+  object-fit: cover;
+}
+
+.home-hero-no-image {
+  display: grid;
+
+  grid-template-columns: 1fr;
+
+  gap: 0;
+}
+
+
+/* Hero без изображения */
+
+.home-hero-no-image.home-layout-left {
+  justify-content: flex-start;
+}
+
+.home-hero-no-image.home-layout-left
+.home-hero-content {
+  margin-right: auto;
+
+  text-align: left;
+}
+
+.home-hero-no-image.home-layout-center {
+  justify-content: center;
+}
+
+.home-hero-no-image.home-layout-center
+.home-hero-content {
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+.home-hero-no-image.home-layout-center
+.home-hero-description {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.home-hero-no-image.home-layout-right {
+  justify-content: flex-end;
+}
+
+.home-hero-no-image.home-layout-right
+.home-hero-content {
+  margin-left: auto;
+
+  text-align: right;
+}
+
+.home-hero-no-image.home-layout-right
+.home-hero-description {
+  margin-left: auto;
+}
+
+
+/* =========================================================
+   СТРАНИЦА КАРТИНЫ
+========================================================= */
+
+.artwork-page {
+  width: 100%;
+
+  min-height: 100vh;
+
+  padding: 120px 24px 100px;
+
+  background: #faf9f6;
+
+  color: #292722;
+}
+
+.artwork-page-container {
+  width: min(1240px, 100%);
+
+  margin: 0 auto;
+}
+
+.artwork-back {
+  display: inline-flex;
+
+  margin-bottom: 50px;
+
+  font-size: 12px;
+
+  color: #77736b;
+
+  text-decoration: none;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.artwork-back:hover {
+  color: #292722;
+
+  transform: translateX(-4px);
+}
+
+.artwork-page-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.35fr)
+    minmax(360px, 0.65fr);
+
+  gap: 70px;
+
+  align-items: start;
+}
+
+.artwork-page-image {
+  position: relative;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  background: #f0eee9;
+}
+
+.artwork-page-image-img {
+  object-fit: contain;
+}
+
+.artwork-page-info {
+  padding-top: 10px;
+}
+
+.artwork-page-title-row {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 25px;
+
+  margin-bottom: 40px;
+}
+
+.artwork-page-title-row h1 {
+  flex: 1;
+
+  min-width: 0;
+
+  margin: 0;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size:
+    clamp(
+      38px,
+      4vw,
+      64px
+    );
+
+  font-weight: 400;
+
+  line-height: 0.98;
+
+  letter-spacing: -0.04em;
+
+  overflow-wrap: anywhere;
+}
+
+.artwork-page-price {
+  flex: 0 0 auto;
+
+  padding-top: 8px;
+
+  font-size: 15px;
+
+  white-space: nowrap;
+
+  color: #292722;
+}
+
+.artwork-page-meta {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 15px;
+
+  padding: 25px 0;
+
+  border-top: 1px solid #dedbd4;
+
+  border-bottom: 1px solid #dedbd4;
+}
+
+.artwork-page-meta div {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+.artwork-page-meta span {
+  font-size: 9px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1.5px;
+
+  color: #9b978e;
+}
+
+.artwork-page-meta strong {
+  font-size: 12px;
+
+  font-weight: 400;
+
+  color: #292722;
+}
+
+.artwork-page-description {
+  padding: 35px 0;
+}
+
+.artwork-page-description p {
+  max-width: 560px;
+
+  margin: 0;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+
+  color: #66635c;
+}
+
+
+/* Контакты на странице картины */
+
+.artwork-contact-box {
+  padding: 28px;
+
+  background: #f0eee9;
+}
+
+.artwork-contact-title {
+  margin-bottom: 12px;
+
+  font-family:
+    "Playfair Display",
+    Georgia,
+    serif;
+
+  font-size: 22px;
+
+  color: #292722;
+}
+
+.artwork-contact-box p {
+  margin-bottom: 22px;
+
+  font-size: 13px;
+
+  line-height: 1.7;
+
+  color: #77736b;
+}
+
+.artwork-contact-links {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+}
+
+.artwork-contact-links a {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 42px;
+
+  padding: 0 20px;
+
+  border-radius: 999px;
+
+  background: #292722;
+
+  color: white;
+
+  font-size: 11px;
+
+  text-decoration: none;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.artwork-contact-links a:hover {
+  background: #3d392f;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   CONTACTS
+========================================================= */
+
+.contact-link {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 10px;
+
+  color: #fff;
+
+  text-decoration: none;
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+}
+
+.contact-link:hover {
+  opacity: 0.7;
+
+  transform: translateY(-2px);
+}
+
+.contact-link span {
+  font-size: 11px;
+
+  line-height: 1;
+
+  text-transform: uppercase;
+
+  letter-spacing: 3px;
+
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.contact-link strong {
+  font-size: 17px;
+
+  line-height: 1.4;
+
+  font-weight: 400;
+
+  color: #fff;
+}
+
+
+/* =========================================================
+   ADMIN
+========================================================= */
+
+.admin-page {
+  min-height: 100vh;
+
+  padding: 60px 30px;
+
+  background: #f5f3ef;
+
+  box-sizing: border-box;
+}
+
+.admin-container {
+  width: 100%;
+
+  max-width: 1200px;
+
+  margin: 0 auto;
+}
+
+.admin-header {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 30px;
+
+  margin-bottom: 40px;
+}
+
+.admin-header h1 {
+  margin-bottom: 8px;
+
+  font-size: 32px;
+
+  font-weight: 600;
+}
+
+.admin-header p {
+  color: #777;
+
+  font-size: 15px;
+}
+
+.admin-header-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+.add-button,
+.logout-button {
+  border: none;
+
+  padding: 13px 22px;
+
+  border-radius: 30px;
+
+  font-size: 14px;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.add-button {
+  background: #222;
+
+  color: white;
+}
+
+.add-button:hover {
+  background: #000;
+}
+
+.logout-button {
+  background: white;
+
+  color: #222;
+
+  border: 1px solid #ddd;
+}
+
+.logout-button:hover {
+  background: #eee;
+}
+
+.admin-content {
+  width: 100%;
+}
+
+.admin-empty {
+  padding: 50px;
+
+  background: white;
+
+  border-radius: 16px;
+
+  text-align: center;
+}
+
+.admin-empty h2 {
+  margin-bottom: 10px;
+
+  font-size: 24px;
+}
+
+.admin-empty p {
+  color: #777;
+}
+
+
+/* Admin table */
+
+.admin-table {
+  width: 100%;
+
+  background: white;
+
+  border-radius: 12px;
+
+  overflow: hidden;
+}
+
+.admin-table-header,
+.admin-table-row {
+  display: grid;
+
+  grid-template-columns:
+    100px
+    1.5fr
+    120px
+    150px
+    80px
+    120px
+    220px;
+
+  align-items: center;
+
+  gap: 20px;
+
+  padding: 18px 24px;
+}
+
+.admin-table-header {
+  background: #ebe8e3;
+
+  font-size: 13px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.08em;
+
+  color: #777;
+}
+
+.admin-table-row {
+  border-bottom: 1px solid #eee;
+}
+
+.admin-table-row:last-child {
+  border-bottom: none;
+}
+
+.admin-image {
+  width: 80px;
+  height: 80px;
+
+  overflow: hidden;
+
+  background: #eee;
+}
+
+.admin-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.status {
+  display: inline-block;
+
+  padding: 6px 10px;
+
+  border-radius: 20px;
+
+  font-size: 12px;
+}
+
+.status.available {
+  background: #e5f2e5;
+
+  color: #34723a;
+}
+
+.status.sold {
+  background: #eee;
+
+  color: #777;
+}
+
+.admin-actions {
+  display: flex;
+
+  gap: 8px;
+}
+
+.admin-actions button {
+  border: 1px solid #ddd;
+
+  background: white;
+
+  padding: 8px 12px;
+
+  border-radius: 6px;
+
+  cursor: pointer;
+}
+
+.admin-actions button:hover {
+  background: #f3f3f3;
+}
+
+.admin-actions .delete-button {
+  color: #b3261e;
+
+  border-color: #e0b5b2;
+}
+
+
+/* =========================================================
+   ADMIN LOGIN
+========================================================= */
+
+.admin-login-page {
+  min-height: 100vh;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px 20px;
+
+  background: #f5f3ef;
+}
+
+.admin-login-form {
+  width: 100%;
+
+  max-width: 420px;
+
+  padding: 40px;
+
+  background: white;
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 20px 60px
+    rgba(0, 0, 0, 0.08);
+}
+
+.admin-login-form h1 {
+  margin-bottom: 10px;
+
+  font-size: 28px;
+}
+
+.admin-login-form p {
+  margin-bottom: 30px;
+
+  color: #777;
+}
+
+.admin-login-form label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  font-size: 14px;
+}
+
+.admin-login-form input {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 14px 16px;
+
+  margin-bottom: 20px;
+
+  border: 1px solid #ddd;
+
+  border-radius: 8px;
+
+  outline: none;
+
+  font-size: 15px;
+}
+
+.admin-login-form input:focus {
+  border-color: #222;
+}
+
+.admin-login-form button {
+  width: 100%;
+
+  border: none;
+
+  padding: 14px;
+
+  border-radius: 8px;
+
+  background: #222;
+
+  color: white;
+
+  cursor: pointer;
+
+  font-size: 15px;
+}
+
+.admin-login-form button:disabled {
+  opacity: 0.6;
+
+  cursor: default;
+}
+
+.login-error {
+  margin-bottom: 20px;
+
+  padding: 12px;
+
+  border-radius: 8px;
+
+  background: #fbe9e7;
+
+  color: #b3261e;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   АДАПТИВ HEADER
+========================================================= */
+
+@media (max-width: 900px) {
+  .site-header-inner {
+    width: calc(100% - 40px);
+
+    min-height: 82px;
+  }
+
+  .desktop-navigation {
+    gap: 30px;
+  }
+
+  .desktop-navigation a,
+  .desktop-navigation button {
+    font-size: 12px;
+  }
+
+  .site-logo {
+    font-size: 22px;
+  }
+}
+
+
+/* =========================================================
+   АДАПТИВ HERO
+========================================================= */
+
+@media (max-width: 1100px) {
+  .home-hero {
+    grid-template-columns:
+      minmax(0, 1fr)
+      340px;
+
+    gap: 50px;
+
+    padding: 110px 32px;
+  }
+
+  .home-hero-image {
+    height: 520px;
+  }
+
+  .home-hero-title {
+    font-size:
+      clamp(
+        48px,
+        7vw,
+        72px
+      );
+  }
+}
+
+
+/* =========================================================
+   АДАПТИВ КАТАЛОГА
+========================================================= */
+
+@media (max-width: 1300px) {
+  .embedded-catalog {
+    width: min(
+      1120px,
+      calc(100% - 48px)
+    );
+  }
+
+  .artworks-grid {
+    gap: 55px 18px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .artworks-grid {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+
+    gap: 45px 16px;
+  }
+
+  .embedded-catalog {
+    padding-top: 80px;
+    padding-bottom: 100px;
+  }
+
+  .catalog-heading {
+    margin-bottom: 40px;
+  }
+
+  .catalog-heading h2 {
+    font-size: 58px;
+  }
+}
+
+
+/* =========================================================
+   АДАПТИВ СТРАНИЦЫ КАРТИНЫ
+========================================================= */
+
+@media (max-width: 1000px) {
+  .artwork-page {
+    padding-top: 100px;
+  }
+
+  .artwork-page-grid {
+    grid-template-columns: 1fr;
+
+    gap: 45px;
+  }
+
+  .artwork-page-info {
+    max-width: 700px;
+  }
+}
+
+
+/* =========================================================
+   МОБИЛЬНЫЙ HERO
+========================================================= */
+
+@media (max-width: 900px) {
+  .home-hero {
+    min-height: auto;
+
+    grid-template-columns: 1fr;
+
+    padding:
+      110px
+      24px
+      80px;
+
+    gap: 50px;
+  }
+
+  .home-hero-content {
+    max-width: 700px;
+  }
+
+  .home-hero-image {
+    width: 100%;
+
+    height: 500px;
+
+    order: 2;
+  }
+
+  .home-hero-no-image {
+    min-height: 100vh;
+
+    display: flex;
+
+    padding:
+      120px
+      24px
+      80px;
+  }
+
+  .home-hero-no-image
+  .home-hero-content {
+    width: 100%;
+
+    max-width: 700px;
+  }
+
+
+  /* Каталог */
+
+  .embedded-catalog {
+    width: calc(100% - 36px);
+  }
+
+  .catalog-filters {
+    flex-wrap: wrap;
+  }
+
+  .artworks-grid {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+  }
+
+
+  /* Artwork page */
+
+  .artwork-page-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================================================
+   МОБИЛЬНЫЙ HEADER
+========================================================= */
+
+@media (max-width: 600px) {
+  .site-header-inner {
+    width: calc(100% - 28px);
+
+    min-height: 72px;
+  }
+
+  .site-logo {
+    font-size: 17px;
+
+    letter-spacing: 0.065em;
+  }
+
+  .desktop-navigation {
+    display: none;
+  }
+
+  .burger-button {
+    display: flex;
+  }
+
+  .mobile-navigation {
+    position: absolute;
+
+    top: 100%;
+    left: 0;
+
+    width: 100%;
+
+    max-height: 0;
+
+    overflow: hidden;
+
+    display: flex;
+
+    flex-direction: column;
+
+    background: #f8f7f3;
+
+    border-top:
+      1px solid
+      rgba(41, 39, 34, 0.12);
+
+    opacity: 0;
+
+    transform: translateY(-10px);
+
+    pointer-events: none;
+
+    transition:
+      max-height 0.4s ease,
+      opacity 0.3s ease,
+      transform 0.3s ease;
+  }
+
+  .mobile-navigation.is-open {
+    max-height: 360px;
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+    pointer-events: auto;
+
+    border-bottom:
+      1px solid
+      rgba(41, 39, 34, 0.12);
+  }
+
+  .mobile-navigation a,
+  .mobile-navigation button {
+    display: block;
+
+    width: 100%;
+
+    padding: 21px 22px;
+
+    border: 0;
+
+    border-bottom:
+      1px solid
+      rgba(41, 39, 34, 0.09);
+
+    background: transparent;
+
+    color: #292722;
+
+    text-align: left;
+
+    text-decoration: none;
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.18em;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+  }
+
+  .mobile-navigation a:last-child,
+  .mobile-navigation button:last-child {
+    border-bottom: 0;
+  }
+
+  .mobile-navigation a:active,
+  .mobile-navigation button:active {
+    background: rgba(41, 39, 34, 0.04);
+  }
+
+
+  /* Hero */
+
+  .home-hero {
+    padding:
+      100px
+      18px
+      60px;
+  }
+
+  .home-hero-title {
+    font-size: 48px;
+
+    letter-spacing: -2.5px;
+  }
+
+  .home-hero-description {
+    font-size: 17px;
+  }
+
+  .home-hero-image {
+    height: 420px;
+
+    border-radius: 24px;
+  }
+
+  .home-hero-no-image {
+    padding:
+      100px
+      18px
+      60px;
+  }
+
+
+  /* Каталог */
+
+  .embedded-catalog {
+    width: calc(100% - 24px);
+
+    padding:
+      65px
+      0
+      75px;
+  }
+
+  .catalog-heading {
+    align-items: flex-end;
+
+    gap: 20px;
+
+    margin-bottom: 30px;
+
+    padding-bottom: 18px;
+  }
+
+  .catalog-eyebrow {
+    margin-bottom: 10px;
+
+    font-size: 8px;
+
+    letter-spacing: 0.22em;
+  }
+
+  .catalog-heading h2 {
+    font-size: 43px;
+  }
+
+  .catalog-count {
+    font-size: 8px;
+
+    letter-spacing: 0.08em;
+  }
+
+
+  /* Фильтры */
+
+  .catalog-filters {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 15px;
+
+    margin-bottom: 35px;
+  }
+
+  .filter-group {
+    width: 100%;
+
+    justify-content: space-between;
+  }
+
+  .filter-group select {
+    min-width: 140px;
+  }
+
+  .catalog-filters input {
+    width: 105px;
+  }
+
+
+  /* Картины */
+
+  .artworks-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr)) !important;
+
+    gap: 38px 10px;
+  }
+
+  .artwork-info {
+    padding-top: 10px;
+  }
+
+  .artwork-info-top {
+    gap: 7px;
+  }
+
+  .artwork-info h2,
+  .artwork-info h3 {
+    font-size: 17px;
+  }
+
+  .artwork-price {
+    font-size: 10px;
+  }
+
+  .artwork-details {
+    font-size: 10px;
+  }
+
+  .artwork-year {
+    font-size: 9px;
+  }
+
+  .artwork-status {
+    top: 5px;
+    right: 5px;
+
+    padding: 4px 5px;
+
+    font-size: 7px;
+  }
+
+
+  /* Пагинация */
+
+  .catalog-pagination {
+    gap: 5px;
+
+    margin-top: 50px;
+
+    padding-top: 20px;
+  }
+
+  .catalog-pagination button {
+    min-width: 34px;
+
+    height: 34px;
+
+    padding: 0 8px;
+
+    font-size: 9px;
+  }
+
+  .catalog-pagination .pagination-prev,
+  .catalog-pagination .pagination-next,
+  .catalog-pagination .pagination-number {
+    min-width: 34px;
+  }
+
+
+  /* Artwork page */
+
+  .artwork-page {
+    padding:
+      90px
+      16px
+      60px;
+  }
+
+  .artwork-back {
+    margin-bottom: 30px;
+
+    font-size: 11px;
+  }
+
+  .artwork-page-grid {
+    gap: 30px;
+  }
+
+  .artwork-page-title-row {
+    gap: 12px;
+
+    margin-bottom: 28px;
+  }
+
+  .artwork-page-title-row h1 {
+    font-size: 36px;
+  }
+
+  .artwork-page-price {
+    padding-top: 5px;
+
+    font-size: 11px;
+  }
+
+  .artwork-page-meta {
+    grid-template-columns:
+      1fr 1fr;
+
+    gap: 20px;
+
+    padding: 20px 0;
+  }
+
+  .artwork-page-description {
+    padding: 25px 0;
+  }
+
+  .artwork-page-description p {
+    font-size: 14px;
+  }
+
+  .artwork-contact-box {
+    padding: 22px;
+  }
+
+  .artwork-contact-title {
+    font-size: 20px;
+  }
+
+
+  /* Contacts */
+
+  .contact-link strong {
+    font-size: 16px;
+  }
+
+
+  /* Admin */
+
+  .admin-page {
+    padding: 30px 20px;
+  }
+
+  .admin-header {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+  .admin-header-actions {
+    width: 100%;
+
+    flex-wrap: wrap;
+  }
+
+  .add-button,
+  .logout-button {
+    flex: 1;
+  }
+}
+
+
+/* =========================================================
+   МАЛЕНЬКИЙ ТЕЛЕФОН
+========================================================= */
+
+@media (max-width: 380px) {
+  .site-header-inner {
+    width: calc(100% - 22px);
+
+    min-height: 66px;
+  }
+
+  .site-logo {
+    font-size: 15px;
+
+    letter-spacing: 0.055em;
+  }
+
+  .burger-button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .burger-button span {
+    width: 21px;
+  }
+
+
+  /* Каталог */
+
+  .embedded-catalog {
+    width: calc(100% - 18px);
+
+    padding-top: 55px;
+  }
+
+  .catalog-heading h2 {
+    font-size: 38px;
+  }
+
+  .catalog-count {
+    font-size: 7px;
+  }
+
+  .artworks-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr)) !important;
+
+    gap: 30px 7px;
+  }
+
+  .artwork-info h2,
+  .artwork-info h3 {
+    font-size: 15px;
+  }
+
+  .artwork-price {
+    font-size: 9px;
+  }
+
+  .artwork-details,
+  .artwork-year {
+    font-size: 8px;
+  }
+
+  .catalog-pagination {
+    gap: 4px;
+
+    margin-top: 40px;
+  }
+
+  .catalog-pagination button {
+    min-width: 31px;
+
+    height: 31px;
+
+    padding: 0 6px;
+
+    font-size: 8px;
+  }
+
+  .catalog-pagination .pagination-prev,
+  .catalog-pagination .pagination-next,
+  .catalog-pagination .pagination-number {
+    min-width: 31px;
+  }
+}
+
+
+/* =========================================================
+   ОЧЕНЬ МАЛЕНЬКИЙ ТЕЛЕФОН
+========================================================= */
+
+@media (max-width: 320px) {
+  .embedded-catalog {
+    width: calc(100% - 14px);
+  }
+
+  .artworks-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr)) !important;
+
+    gap: 25px 6px;
+  }
+
+  .catalog-heading h2 {
+    font-size: 34px;
+  }
+
+  .artwork-info h2,
+  .artwork-info h3 {
+    font-size: 10px;
+  }
+
+  .artwork-price {
+    font-size: 7px;
+  }
+
+  .artwork-details,
+  .artwork-year {
+    font-size: 6px;
+  }
+}
+
+
+/* =========================================================
+   SITE BACKGROUND MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+  .site-background {
+    background-attachment: scroll;
+  }
+}
+
+
+/* =========================================================
+   ADMIN TABLE MOBILE
+========================================================= */
+
+@media (max-width: 1000px) {
+  .admin-page {
+    padding:
+      100px
+      20px
+      60px;
+  }
+
+  .admin-table {
+    overflow-x: auto;
+  }
+
+  .admin-table-header,
+  .admin-table-row {
+    min-width: 1100px;
+  }
+}
+.fontDelete {
+  flex-shrink: 0;
+
+  padding: 8px 14px;
+
+  border: 1px solid #d8d2ca;
+
+  background: transparent;
+
+  color: #77736b;
+
+  font-family: inherit;
+
+  font-size: 10px;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.fontDelete:hover {
+  background: #b3261e;
+
+  border-color: #b3261e;
+
+  color: #fff;
+}
+.fontItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}

@@ -1,0 +1,55 @@
+.available{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:7px 14px;
+
+    border-radius:30px;
+
+    background:#eafaf0;
+
+    color:#14854d;
+
+    font-weight:600;
+
+    font-size:14px;
+
+}
+
+.sold{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:7px 14px;
+
+    border-radius:30px;
+
+    background:#ffeaea;
+
+    color:#cb3b3b;
+
+    font-weight:600;
+
+    font-size:14px;
+
+}
+
+.dot{
+
+    width:9px;
+
+    height:9px;
+
+    border-radius:50%;
+
+    background:currentColor;
+
+}

@@ -1,0 +1,611 @@
+.page {
+  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+
+  background: #f8f7f3;
+
+  overflow-x: hidden;
+}
+
+/* =================================
+   ГЛАВНЫЙ ЭКРАН
+================================= */
+
+.hero {
+  position: relative;
+
+  width: 100%;
+  max-width: 1500px;
+
+  /*
+    Делаем главный блок немного выше
+    обычного экрана, чтобы при прокрутке
+    не появлялась белая полоса снизу.
+  */
+  min-height: 108vh;
+
+  margin: 0 auto;
+
+  padding:
+    120px 6vw
+    150px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 80px;
+
+  box-sizing: border-box;
+}
+
+.heroCenter {
+  justify-content: center;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 620px;
+}
+
+.heroContentCenter {
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+.heroLabel {
+  margin: 0 0 24px;
+
+  font-size: 13px;
+
+  font-weight: 500;
+
+  letter-spacing: 5px;
+
+  text-transform: uppercase;
+}
+
+.heroTitle {
+  margin: 0 0 32px;
+
+  white-space: pre-line;
+
+  font-size: clamp(
+    48px,
+    6vw,
+    88px
+  );
+
+  line-height: 0.95;
+
+  font-weight: 500;
+
+  letter-spacing: -3px;
+}
+
+.heroDescription {
+  max-width: 600px;
+
+  margin: 0 0 42px;
+
+  white-space: pre-line;
+
+  font-size: 19px;
+
+  line-height: 1.8;
+}
+
+.heroContentCenter
+  .heroDescription {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.heroButton {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 54px;
+
+  padding: 0 32px;
+
+  border: none;
+
+  border-radius: 999px;
+
+  font-size: 15px;
+
+  font-weight: 500;
+
+  text-decoration: none;
+
+  box-shadow:
+    0 12px 30px
+    rgba(0, 0, 0, 0.12);
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.heroButton:hover {
+  transform:
+    translateY(-3px);
+
+  opacity: 0.9;
+
+  box-shadow:
+    0 16px 35px
+    rgba(0, 0, 0, 0.18);
+}
+
+/* =================================
+   ФОТО
+================================= */
+
+.heroImageWrapper {
+  position: relative;
+
+  z-index: 2;
+
+  flex: 0 0 420px;
+
+  width: 420px;
+  height: 620px;
+
+  overflow: hidden;
+
+  border-radius: 32px;
+
+  background: #e8e5de;
+
+  box-shadow:
+    0 25px 60px
+    rgba(0, 0, 0, 0.12);
+}
+
+.heroImage {
+  object-fit: cover;
+}
+
+/* =================================
+   КАТАЛОГ
+================================= */
+
+/*
+  ВАЖНО:
+  Здесь больше НЕТ background: #f8f7f3.
+
+  Фон теперь наследуется от .page.
+  Благодаря этому фоновая фотография главной
+  страницы не обрывается резкой белой полосой.
+*/
+
+.catalog {
+  position: relative;
+
+  width: 100%;
+
+  min-height: 100vh;
+
+  background: transparent;
+
+  /*
+    Небольшой внутренний отступ,
+    чтобы каталог не прилипал к hero.
+  */
+  padding-top: 20px;
+
+  box-sizing: border-box;
+}
+
+/* =================================
+   КОНТАКТЫ
+================================= */
+
+.contacts {
+  position: relative;
+
+  width: 100%;
+
+  margin: 0;
+
+  padding:
+    100px 0
+    110px;
+
+  background: #292722;
+
+  color: #fff;
+
+  scroll-margin-top: 100px;
+
+  box-sizing: border-box;
+}
+
+.contactsInner {
+  width: 100%;
+
+  max-width: 1500px;
+
+  margin: 0 auto;
+
+  padding: 0 6vw;
+
+  box-sizing: border-box;
+}
+
+.contactsHeading {
+  margin-bottom: 55px;
+}
+
+.contactsLabel {
+  margin: 0 0 16px;
+
+  font-size: 11px;
+
+  font-weight: 500;
+
+  letter-spacing: 5px;
+
+  text-transform: uppercase;
+
+  color: rgba(
+    255,
+    255,
+    255,
+    0.42
+  );
+}
+
+.contactsTitle {
+  margin: 0;
+
+  font-size: clamp(
+    40px,
+    5vw,
+    70px
+  );
+
+  line-height: 1;
+
+  font-weight: 500;
+
+  letter-spacing: -3px;
+
+  color: #fff;
+}
+
+/* =================================
+   КАРТОЧКИ КОНТАКТОВ
+================================= */
+
+.contactsGrid {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 16px;
+}
+
+.contact {
+  min-width: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+  padding: 22px 20px;
+
+  border: 1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.12
+    );
+
+  border-radius: 18px;
+
+  background: rgba(
+    255,
+    255,
+    255,
+    0.035
+  );
+
+  color: #fff;
+
+  text-decoration: none;
+
+  box-sizing: border-box;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.contact:hover {
+  transform:
+    translateY(-4px);
+
+  background: rgba(
+    255,
+    255,
+    255,
+    0.075
+  );
+
+  border-color: rgba(
+    255,
+    255,
+    255,
+    0.25
+  );
+}
+
+.contactIcon {
+  width: 46px;
+  height: 46px;
+
+  flex: 0 0 46px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: rgba(
+    255,
+    255,
+    255,
+    0.08
+  );
+
+  color: #fff;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.contact:hover
+  .contactIcon {
+  transform:
+    scale(1.06);
+
+  background: rgba(
+    255,
+    255,
+    255,
+    0.14
+  );
+}
+
+.contactContent {
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.contactContent small {
+  font-size: 10px;
+
+  line-height: 1;
+
+  letter-spacing: 2.5px;
+
+  text-transform: uppercase;
+
+  color: rgba(
+    255,
+    255,
+    255,
+    0.4
+  );
+}
+
+.contactContent strong {
+  min-width: 0;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+
+  font-size: 16px;
+
+  line-height: 1.4;
+
+  font-weight: 400;
+
+  color: rgba(
+    255,
+    255,
+    255,
+    0.9
+  );
+}
+
+/* =================================
+   TABLET
+================================= */
+
+@media (max-width: 1100px) {
+  .hero {
+    gap: 50px;
+
+    min-height: 105vh;
+
+    padding:
+      110px 5vw
+      130px;
+  }
+
+  .heroImageWrapper {
+    flex-basis: 360px;
+
+    width: 360px;
+    height: 540px;
+  }
+
+  .contactsGrid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+
+    /*
+      На телефоне не используем 108vh,
+      потому что фотография и текст идут
+      друг под другом.
+    */
+
+    padding:
+      110px 24px
+      100px;
+
+    flex-direction: column;
+
+    gap: 50px;
+
+    text-align: center;
+  }
+
+  .heroContent {
+    max-width: none;
+  }
+
+  .heroTitle {
+    letter-spacing: -2px;
+  }
+
+  .heroDescription {
+    margin-left: auto;
+    margin-right: auto;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+  }
+
+  .heroImageWrapper {
+    flex: none;
+
+    width: 100%;
+
+    height: 520px;
+
+    border-radius: 24px;
+  }
+
+  .catalog {
+    min-height: auto;
+
+    padding-top: 0;
+  }
+
+  .contacts {
+    padding:
+      80px 0
+      90px;
+  }
+
+  .contactsInner {
+    padding: 0 24px;
+  }
+
+  .contactsHeading {
+    margin-bottom: 38px;
+  }
+
+  .contactsTitle {
+    font-size: 46px;
+
+    letter-spacing: -2px;
+  }
+
+  .contactsGrid {
+    grid-template-columns: 1fr;
+
+    gap: 12px;
+  }
+
+  .contact {
+    padding: 18px;
+  }
+}
+
+/* =================================
+   SMALL MOBILE
+================================= */
+
+@media (max-width: 480px) {
+  .hero {
+    padding:
+      90px 18px
+      80px;
+  }
+
+  .heroLabel {
+    font-size: 11px;
+
+    letter-spacing: 4px;
+  }
+
+  .heroTitle {
+    font-size: 48px;
+  }
+
+  .heroImageWrapper {
+    height: 430px;
+
+    border-radius: 20px;
+  }
+
+  .contactsInner {
+    padding: 0 18px;
+  }
+
+  .contactsTitle {
+    font-size: 42px;
+  }
+
+  .contactIcon {
+    width: 42px;
+    height: 42px;
+
+    flex-basis: 42px;
+  }
+}

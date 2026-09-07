@@ -1,0 +1,71 @@
+.toast{
+
+    position:fixed;
+
+    top:30px;
+
+    right:30px;
+
+    min-width:320px;
+
+    padding:18px 22px;
+
+    border-radius:16px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    color:white;
+
+    font-weight:600;
+
+    transform:translateX(420px);
+
+    transition:.35s;
+
+    z-index:9999;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.18);
+
+}
+
+.show{
+
+    transform:translateX(0);
+
+}
+
+.success{
+
+    background:#25b864;
+
+}
+
+.error{
+
+    background:#df4545;
+
+}
+
+.icon{
+
+    width:34px;
+
+    height:34px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:rgba(255,255,255,.2);
+
+    font-size:20px;
+
+}

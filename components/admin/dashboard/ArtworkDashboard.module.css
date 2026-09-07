@@ -1,0 +1,120 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #e8e5df;
+  border-radius: 16px;
+  padding: 22px;
+  min-height: 130px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.label {
+  color: #77736c;
+  font-size: 14px;
+}
+
+.card strong {
+  color: #292722;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.activity {
+  background: #ffffff;
+  border: 1px solid #e8e5df;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.activityHeader {
+  padding: 22px;
+  border-bottom: 1px solid #e8e5df;
+}
+
+.activityHeader h2 {
+  margin: 0;
+  color: #292722;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.activityHeader p {
+  margin: 6px 0 0;
+  color: #77736c;
+  font-size: 14px;
+}
+
+.activityList {
+  display: flex;
+  flex-direction: column;
+}
+
+.activityItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 18px 22px;
+
+  border-bottom: 1px solid #eeeae4;
+}
+
+.activityItem:last-child {
+  border-bottom: none;
+}
+
+.activityInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.activityInfo strong {
+  color: #292722;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.activityInfo span {
+  color: #77736c;
+  font-size: 13px;
+}
+
+.activityPrice {
+  color: #292722;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.empty {
+  padding: 32px 22px;
+  color: #77736c;
+  text-align: center;
+}
+
+@media (max-width: 1100px) {
+  .cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}

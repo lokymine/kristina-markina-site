@@ -1,0 +1,60 @@
+.page {
+  width: 100%;
+  max-width: 1450px;
+  margin: 0 auto;
+  padding: 45px;
+  box-sizing: border-box;
+}
+
+.center {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  margin: 0 0 8px;
+  font-size: 40px;
+  line-height: 1.1;
+}
+
+.header p {
+  margin: 0;
+  color: #777;
+}
+
+.bulkBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  margin: 24px 0;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.bulkBar button {
+  height: 44px;
+  padding: 0 22px;
+  border: none;
+  border-radius: 10px;
+  background: #d32f2f;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.bulkBar button:hover {
+  background: #b71c1c;
+}
